@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Haleyora Power</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 30px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    section {
+      margin-top: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+
+    form button, #unmute-btn {
+      padding: 10px 20px;
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    #unmute-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Video Background -->
+  <video autoplay loop id="bg-video">
+    <source src="video.mp4" type="video/mp4">
+    Browser Anda tidak mendukung video.
+  </video>
+
+  <!-- Tombol untuk Aktifkan Suara -->
+  <button id="unmute-btn" onclick="unmuteVideo()">Aktifkan Suara</button>
+
+  <!-- Header -->
+  <header>
+    <img src="logo.png" alt="Logo Haleyora Power" width="150">
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showPage('home')">Home</a></li>
+        <li><a href="#" onclick="showPage('about')">About Us</a></li>
+        <li><a href="#" onclick="showPage('news')">News</a></li>
+        <li><a href="#" onclick="showPage('news-detail')">News Detail</a></li>
+        <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Konten Utama -->
+  <main>
+    <!-- Halaman Home -->
+    <section id="home">
+      <h2>Selamat Datang di Haleyora Power</h2>
+      <p>Haleyora Power adalah anak perusahaan dari PT PLN (Persero) yang berdiri dengan tujuan utama untuk meningkatkan efisiensi dan keandalan distribusi listrik di seluruh wilayah Indonesia. Kami hadir sebagai jawaban atas kebutuhan masyarakat akan layanan kelistrikan yang tidak hanya cepat dan tanggap, namun juga berkualitas dan berkelanjutan. Seiring dengan perkembangan teknologi dan meningkatnya kebutuhan energi listrik, Haleyora Power terus bertransformasi menjadi perusahaan penyedia jasa ketenagalistrikan yang adaptif dan inovatif.</p>
+      <p>Melalui berbagai proyek infrastruktur kelistrikan, kami turut mendukung pencapaian target elektrifikasi nasional, terutama di daerah-daerah tertinggal dan terpencil. Dengan tenaga profesional yang berpengalaman dan berintegritas, Haleyora Power memastikan setiap jaringan distribusi dan pelayanan teknis dilaksanakan sesuai standar keselamatan dan mutu tinggi. Kami percaya bahwa listrik bukan sekadar komoditas, melainkan pilar utama pembangunan bangsa.</p>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section id="about" class="hidden">
+      <h2>Tentang Kami</h2>
+      <p>Didirikan pada tahun 2011, PT Haleyora Power merupakan anak usaha dari PT PLN (Persero) yang bergerak dalam bidang pengelolaan dan pemeliharaan jaringan distribusi tenaga listrik tegangan menengah dan rendah. Fokus utama perusahaan adalah meningkatkan keandalan sistem distribusi listrik di berbagai wilayah operasional PLN, termasuk di daerah terpencil dan wilayah yang rawan gangguan pasokan listrik.</p>
+      <p>Dengan mengedepankan profesionalisme, efisiensi, dan inovasi, kami menyediakan layanan seperti pemeliharaan jaringan distribusi, pengelolaan pelanggan, pencatatan meter, dan layanan teknis lainnya. Kami juga berperan aktif dalam pelatihan dan pengembangan SDM di bidang ketenagalistrikan, sebagai bentuk kontribusi terhadap kemajuan sektor energi nasional. Komitmen kami adalah menjadi mitra strategis PLN yang handal, terpercaya, dan mampu bersaing dalam era industri 4.0.</p>
+    </section>
+
+    <!-- Berita -->
+    <section id="news" class="hidden">
+      <h2>Berita Terbaru</h2>
+      <ul>
+        <li>
+          <a href="#" onclick="showPage('news-detail')">
+            Haleyora Power Bangun Infrastruktur Listrik di Daerah 3T
+          </a>
+          <p>
+            Untuk mendukung pemerataan akses energi, Haleyora Power membangun jaringan distribusi listrik di daerah tertinggal, terdepan, dan terluar (3T). Proyek ini dilaksanakan dengan sinergi bersama pemerintah daerah dan masyarakat setempat, serta memanfaatkan teknologi monitoring jaringan jarak jauh untuk memastikan keandalan sistem.
+          </p>
+        </li>
+        <li>
+          <a href="#">Peluncuran Aplikasi Layanan Digital Pelanggan</a>
+          <p>
+            Dalam rangka transformasi digital, Haleyora Power meluncurkan aplikasi layanan pelanggan berbasis web dan mobile. Aplikasi ini mempermudah pelanggan untuk melaporkan gangguan, memantau status layanan, dan mendapatkan notifikasi real-time terkait pemadaman dan pemeliharaan jaringan.
+          </p>
+        </li>
+        <li>
+          <a href="#">Pelatihan SDM untuk Meningkatkan Kompetensi Teknik</a>
+          <p>
+            Sebagai upaya peningkatan mutu tenaga kerja, Haleyora Power menggelar pelatihan intensif bagi petugas teknik dan staf operasional. Materi pelatihan mencakup keselamatan kerja, pemeliharaan preventif, serta penggunaan perangkat cerdas dalam pemantauan jaringan distribusi.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Detail Berita -->
+    <section id="news-detail" class="hidden">
+      <h2>Detail Berita</h2>
+      <p>
+        Dalam program elektrifikasi nasional, Haleyora Power mendapatkan mandat untuk memperluas jaringan distribusi listrik ke wilayah-wilayah 3T (Tertinggal, Terdepan, dan Terluar) yang selama ini mengalami keterbatasan akses listrik. Proyek ini mencakup pembangunan gardu distribusi, penarikan jaringan tegangan menengah dan rendah, serta pemasangan meter listrik pada rumah-rumah warga.
+      </p>
+      <p>
+        Proyek ini menjadi bagian dari misi perusahaan dalam meningkatkan kualitas hidup masyarakat melalui penyediaan energi yang berkelanjutan dan merata. Dengan adanya listrik, masyarakat kini dapat menjalankan kegiatan ekonomi, pendidikan, dan rumah tangga dengan lebih efisien dan produktif. Ke depan, Haleyora Power berkomitmen untuk terus mendukung pencapaian rasio elektrifikasi 100% di seluruh Indonesia.
+      </p>
+    </section>
+
+    <!-- Hubungi Kami -->
+    <section id="contact" class="hidden">
+      <h2>Hubungi Kami</h2>
+      <p>Jika Anda memiliki pertanyaan, masukan, atau membutuhkan bantuan terkait layanan kami, silakan hubungi kami melalui informasi di bawah ini:</p>
+      <ul>
+        <li><strong>Alamat:</strong> Jl. Tomang Raya No.88, Jakarta Barat, DKI Jakarta 11430</li>
+        <li><strong>Email:</strong> info@haleyorapower.co.id</li>
+        <li><strong>Telepon:</strong> (021) 12345678</li>
+        <li><strong>Jam Operasional:</strong> Senin - Jumat, pukul 08.00 - 17.00 WIB</li>
+      </ul>
+      <form>
+        <input type="text" placeholder="Nama" required><br>
+        <input type="email" placeholder="Email" required><br>
+        <textarea placeholder="Pesan Anda" required></textarea><br>
+        <button type="submit">Kirim</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Script JS -->
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('main section').forEach(section => {
+        section.classList.add('hidden');
+      });
+      document.getElementById(pageId).classList.remove('hidden');
+    }
+
+    function unmuteVideo() {
+      const video = document.getElementById('bg-video');
+      video.muted = false;
+      video.play();
+    }
+  </script>
+
+</body>
+</html>
